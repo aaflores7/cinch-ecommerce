@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: cinch-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: cinch_db
+      MYSQL_ROOT_PASSWORD: rootpassword # Use a secure password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
